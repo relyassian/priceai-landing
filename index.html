@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Price AI — Point. Scan. Save.</title>
+  <meta name="description" content="Point your camera at anything and instantly see the real price from 50+ retailers. AI-powered deal scoring, price comparison, and savings tracking." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #1DB954;
+      --green-dim: #179443;
+      --dark: #0a0a0a;
+      --darker: #050505;
+      --card: #111111;
+      --card2: #161616;
+      --border: rgba(255,255,255,0.07);
+      --text: #f0f0f0;
+      --muted: #888;
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5vw;
+      height: 68px;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-logo .dollar {
+      color: var(--green);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green);
+      color: #000;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 10px 20px;
+      border-radius: 100px;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .nav-cta:hover { background: #22d45e; transform: scale(1.03); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 5vw 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px; left: 50%;
+      transform: translateX(-50%);
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(29,185,84,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(29,185,84,0.12);
+      border: 1px solid rgba(29,185,84,0.3);
+      color: var(--green);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 32px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+
+    .hero h1 .accent { color: var(--green); }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 40px;
+      font-weight: 300;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: fadeUp 0.6s 0.3s ease both;
+      margin-bottom: 60px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--green);
+      color: #000;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 16px 32px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 0 40px rgba(29,185,84,0.25);
+    }
+
+    .btn-primary:hover {
+      background: #22d45e;
+      transform: translateY(-2px);
+      box-shadow: 0 0 60px rgba(29,185,84,0.4);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--text);
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 16px 32px;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(255,255,255,0.25);
+      transform: translateY(-2px);
+    }
+
+    /* App Store badge SVG-style */
+    .store-icon { width: 20px; height: 20px; }
+
+    /* ── PHONE MOCKUP ── */
+    .phone-wrap {
+      animation: fadeUp 0.8s 0.4s ease both;
+      position: relative;
+    }
+
+    .phone-mockup {
+      width: 240px;
+      height: 490px;
+      background: #111;
+      border-radius: 40px;
+      border: 2px solid rgba(255,255,255,0.1);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05);
+      margin: 0 auto;
+    }
+
+    .phone-notch {
+      position: absolute;
+      top: 12px; left: 50%;
+      transform: translateX(-50%);
+      width: 80px; height: 24px;
+      background: #000;
+      border-radius: 12px;
+      z-index: 2;
+    }
+
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(160deg, #0f0f0f 0%, #1a1a1a 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      gap: 12px;
+    }
+
+    .phone-scan-frame {
+      width: 140px;
+      height: 140px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .phone-scan-frame::before,
+    .phone-scan-frame::after {
+      content: '';
+      position: absolute;
+      width: 30px; height: 30px;
+      border-color: var(--green);
+      border-style: solid;
+    }
+
+    .phone-scan-frame::before {
+      top: 0; left: 0;
+      border-width: 3px 0 0 3px;
+      border-radius: 4px 0 0 0;
+    }
+
+    .phone-scan-frame::after {
+      bottom: 0; right: 0;
+      border-width: 0 3px 3px 0;
+      border-radius: 0 0 4px 0;
+    }
+
+    .scan-inner::before,
+    .scan-inner::after {
+      content: '';
+      position: absolute;
+      width: 30px; height: 30px;
+      border-color: var(--green);
+      border-style: solid;
+    }
+
+    .scan-inner::before {
+      top: 0; right: 0;
+      border-width: 3px 3px 0 0;
+      border-radius: 0 4px 0 0;
+    }
+
+    .scan-inner::after {
+      bottom: 0; left: 0;
+      border-width: 0 0 3px 3px;
+      border-radius: 0 0 0 4px;
+    }
+
+    .scan-inner {
+      position: absolute;
+      inset: 0;
+    }
+
+    .phone-product {
+      font-size: 1.8rem;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .phone-deal {
+      background: rgba(29,185,84,0.15);
+      border: 1px solid rgba(29,185,84,0.3);
+      border-radius: 12px;
+      padding: 10px 16px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .phone-deal-score {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--green);
+    }
+
+    .phone-deal-label {
+      font-size: 0.65rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .phone-prices {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .phone-price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.7rem;
+      padding: 6px 10px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 8px;
+    }
+
+    .phone-price-row .retailer { color: var(--muted); }
+    .phone-price-row .price { color: var(--text); font-weight: 600; }
+    .phone-price-row.best .price { color: var(--green); }
+    .phone-price-row.best { background: rgba(29,185,84,0.08); }
+
+    /* ── SOCIAL PROOF ── */
+    .social-proof {
+      padding: 80px 5vw;
+      text-align: center;
+    }
+
+    .social-proof-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .proof-stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .proof-num {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--green);
+    }
+
+    .proof-label {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .proof-divider {
+      width: 1px;
+      height: 50px;
+      background: var(--border);
+    }
+
+    /* ── HOW IT WORKS ── */
+    .section {
+      padding: 100px 5vw;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 480px;
+      margin-bottom: 60px;
+      font-weight: 300;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .step-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.2s;
+    }
+
+    .step-card:hover {
+      border-color: rgba(29,185,84,0.3);
+      transform: translateY(-4px);
+    }
+
+    .step-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--green), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .step-card:hover::before { opacity: 1; }
+
+    .step-num {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 800;
+      color: rgba(29,185,84,0.15);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .step-icon { font-size: 1.8rem; margin-bottom: 12px; }
+
+    .step-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .step-desc { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+
+    /* ── FEATURES ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      transition: border-color 0.3s, transform 0.2s;
+    }
+
+    .feature-card:hover {
+      border-color: rgba(29,185,84,0.25);
+      transform: translateY(-3px);
+    }
+
+    .feature-icon {
+      width: 44px; height: 44px;
+      background: rgba(29,185,84,0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 16px;
+    }
+
+    .feature-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .feature-desc { color: var(--muted); font-size: 0.875rem; line-height: 1.6; }
+
+    /* ── DEAL SCORE EXPLAINER ── */
+    .score-section {
+      padding: 100px 5vw;
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .score-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .score-visual {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .score-bar-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .score-bar-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      width: 80px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .score-bar-track {
+      flex: 1;
+      height: 8px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+
+    .score-bar-fill {
+      height: 100%;
+      border-radius: 100px;
+      transition: width 1s ease;
+    }
+
+    .score-num {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 700;
+      width: 28px;
+    }
+
+    /* ── REVIEWS ── */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .review-card {
+      background: var(--card2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+    }
+
+    .review-stars { color: var(--green); font-size: 0.85rem; margin-bottom: 12px; }
+
+    .review-text {
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: #ccc;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .review-avatar {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(29,185,84,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+
+    .review-name { font-size: 0.85rem; font-weight: 600; }
+    .review-handle { font-size: 0.75rem; color: var(--muted); }
+
+    /* ── CTA SECTION ── */
+    .cta-section {
+      padding: 120px 5vw;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      bottom: -200px; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(29,185,84,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-section h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    .cta-section p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 40px;
+      font-weight: 300;
+    }
+
+    .cta-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 16px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 48px 5vw;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: gap;
+      gap: 24px;
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .footer-logo .dollar { color: var(--green); }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--text); }
+
+    .social-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .social-link {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: border-color 0.2s, color 0.2s, transform 0.15s;
+    }
+
+    .social-link:hover {
+      border-color: var(--green);
+      color: var(--green);
+      transform: scale(1.1);
+    }
+
+    .footer-copy {
+      color: var(--muted);
+      font-size: 0.78rem;
+      text-align: center;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+
+    @keyframes scanLine {
+      0% { top: 10%; }
+      100% { top: 90%; }
+    }
+
+    .scan-line {
+      position: absolute;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--green), transparent);
+      animation: scanLine 2s ease-in-out infinite alternate;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .score-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .social-links { justify-content: center; }
+      .footer-links { justify-content: center; }
+      .proof-divider { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-buttons { flex-direction: column; align-items: center; }
+      .btn-primary, .btn-secondary { width: 100%; max-width: 280px; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-logo">
+      <span class="dollar">$</span> Price AI
+    </a>
+    <a href="https://apps.apple.com/app/price-ai/id6760505536" class="nav-cta" target="_blank">
+      Download Free
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">🔍 AI-Powered Price Intelligence</div>
+    <h1>Point. Scan.<br><span class="accent">Save.</span></h1>
+    <p class="hero-sub">See the real price on anything, instantly. Compare 50+ retailers, get a Deal Score, and never overpay again.</p>
+    <div class="hero-buttons">
+      <a href="https://apps.apple.com/app/price-ai/id6760505536" class="btn-primary" target="_blank">
+        <svg class="store-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        App Store
+      </a>
+      <a href="#how" class="btn-secondary">See How It Works ↓</a>
+    </div>
+
+    <div class="phone-wrap">
+      <div class="phone-mockup">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="phone-scan-frame">
+            <div class="scan-inner"></div>
+            <div class="scan-line"></div>
+            <div class="phone-product">👟</div>
+          </div>
+          <div class="phone-deal">
+            <div class="phone-deal-score">87</div>
+            <div class="phone-deal-label">Deal Score</div>
+          </div>
+          <div class="phone-prices">
+            <div class="phone-price-row best">
+              <span class="retailer">Nike.com</span>
+              <span class="price">$89.99 ✓</span>
+            </div>
+            <div class="phone-price-row">
+              <span class="retailer">Amazon</span>
+              <span class="price">$97.00</span>
+            </div>
+            <div class="phone-price-row">
+              <span class="retailer">Foot Locker</span>
+              <span class="price">$110.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF -->
+  <div class="social-proof">
+    <div class="social-proof-inner">
+      <div class="proof-stat">
+        <div class="proof-num">50+</div>
+        <div class="proof-label">Retailers Compared</div>
+      </div>
+      <div class="proof-divider"></div>
+      <div class="proof-stat">
+        <div class="proof-num">1–100</div>
+        <div class="proof-label">Deal Score Range</div>
+      </div>
+      <div class="proof-divider"></div>
+      <div class="proof-stat">
+        <div class="proof-num">3-Day</div>
+        <div class="proof-label">Free Trial</div>
+      </div>
+      <div class="proof-divider"></div>
+      <div class="proof-stat">
+        <div class="proof-num">AI</div>
+        <div class="proof-label">Powered by GPT-4o</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">Three steps to a better deal</h2>
+    <p class="section-sub">No more searching tab by tab. Price AI does the work in seconds.</p>
+    <div class="steps">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-icon">📸</div>
+        <div class="step-title">Point Your Camera</div>
+        <div class="step-desc">Aim at any product — sneakers, electronics, furniture, watches. Our AI identifies it instantly.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-icon">⚡</div>
+        <div class="step-title">Get Real Prices</div>
+        <div class="step-desc">We pull live prices from 50+ retailers and rank them from cheapest to most expensive.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-icon">💰</div>
+        <div class="step-title">See Your Deal Score</div>
+        <div class="step-desc">Every result gets a Deal Score from 1–100. Know instantly if it's a steal or a ripoff.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section" style="padding-top: 0;">
+    <div class="section-label">Features</div>
+    <h2 class="section-title">Everything you need<br>to shop smarter</h2>
+    <p class="section-sub">Built for people who hate overpaying.</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <div class="feature-title">Deal Score</div>
+        <div class="feature-desc">Every scan gets scored 1–100 so you know exactly how good (or bad) the deal really is.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏪</div>
+        <div class="feature-title">50+ Retailers</div>
+        <div class="feature-desc">Amazon, Nike, Best Buy, Walmart, Target and dozens more — all in one place.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💾</div>
+        <div class="feature-title">Save & Track</div>
+        <div class="feature-desc">Bookmark items and track how much you've saved over time. Watch your savings grow.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🤖</div>
+        <div class="feature-title">AI Shopping Assistant</div>
+        <div class="feature-desc">Ask questions about any product. Get advice, comparisons, and recommendations instantly.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📷</div>
+        <div class="feature-title">Camera-First</div>
+        <div class="feature-desc">No typing, no barcodes. Just point and scan any item in your physical world.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <div class="feature-title">Privacy First</div>
+        <div class="feature-desc">Your scan history stays yours. We never sell your data or share it with advertisers.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEAL SCORE -->
+  <section class="score-section">
+    <div class="score-inner">
+      <div>
+        <div class="section-label">The Deal Score</div>
+        <h2 class="section-title">Know if it's a steal<br>or a ripoff</h2>
+        <p style="color: var(--muted); font-size: 1rem; line-height: 1.7; font-weight: 300; margin-top: 16px;">
+          Our AI analyzes the current market price, historical trends, and retailer markups to give every product a Deal Score from 1 to 100. No more guessing. No more regret.
+        </p>
+        <div style="margin-top: 28px; display: flex; gap: 24px; flex-wrap: wrap;">
+          <div>
+            <div style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; color: #ef4444;">1–40</div>
+            <div style="font-size: 0.8rem; color: var(--muted);">Bad Deal</div>
+          </div>
+          <div>
+            <div style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; color: #f59e0b;">41–70</div>
+            <div style="font-size: 0.8rem; color: var(--muted);">Fair Deal</div>
+          </div>
+          <div>
+            <div style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; color: var(--green);">71–100</div>
+            <div style="font-size: 0.8rem; color: var(--muted);">Great Deal</div>
+          </div>
+        </div>
+      </div>
+      <div class="score-visual">
+        <div class="score-bar-row">
+          <div class="score-bar-label">Amazon</div>
+          <div class="score-bar-track"><div class="score-bar-fill" style="width: 45%; background: #f59e0b;"></div></div>
+          <div class="score-num" style="color: #f59e0b;">45</div>
+        </div>
+        <div class="score-bar-row">
+          <div class="score-bar-label">Walmart</div>
+          <div class="score-bar-track"><div class="score-bar-fill" style="width: 62%; background: #f59e0b;"></div></div>
+          <div class="score-num" style="color: #f59e0b;">62</div>
+        </div>
+        <div class="score-bar-row">
+          <div class="score-bar-label">Nike.com</div>
+          <div class="score-bar-track"><div class="score-bar-fill" style="width: 88%; background: var(--green);"></div></div>
+          <div class="score-num" style="color: var(--green);">88</div>
+        </div>
+        <div class="score-bar-row">
+          <div class="score-bar-label">Foot Locker</div>
+          <div class="score-bar-track"><div class="score-bar-fill" style="width: 28%; background: #ef4444;"></div></div>
+          <div class="score-num" style="color: #ef4444;">28</div>
+        </div>
+        <div class="score-bar-row">
+          <div class="score-bar-label">StockX</div>
+          <div class="score-bar-track"><div class="score-bar-fill" style="width: 72%; background: var(--green);"></div></div>
+          <div class="score-num" style="color: var(--green);">72</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section">
+    <div class="section-label">Early Users</div>
+    <h2 class="section-title">People are already saving</h2>
+    <p class="section-sub">Join thousands who never overpay.</p>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Scanned a pair of Yeezys at the mall and found them $40 cheaper online in literally 3 seconds. This app pays for itself."</div>
+        <div class="review-author">
+          <div class="review-avatar">👟</div>
+          <div>
+            <div class="review-name">Jordan M.</div>
+            <div class="review-handle">@jordanbuys</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Pointed it at a TV at Best Buy and it instantly showed me it was 30% cheaper on Amazon. I bought it right there on my phone."</div>
+        <div class="review-author">
+          <div class="review-avatar">📺</div>
+          <div>
+            <div class="review-name">Maya T.</div>
+            <div class="review-handle">@tech_maya</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"The Deal Score is genius. I used to spend 20 minutes comparing prices. Now I just scan and know instantly if I should buy."</div>
+        <div class="review-author">
+          <div class="review-avatar">💰</div>
+          <div>
+            <div class="review-name">Alex R.</div>
+            <div class="review-handle">@smartshopper</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Stop overpaying.<br><span style="color: var(--green);">Start saving today.</span></h2>
+    <p>3-day free trial. No credit card required. Cancel anytime.</p>
+    <a href="https://apps.apple.com/app/price-ai/id6760505536" class="btn-primary" target="_blank" style="display: inline-flex;">
+      <svg class="store-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      Download on App Store
+    </a>
+    <div class="cta-note">Available on iOS · Android coming soon</div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <a href="/" class="footer-logo"><span class="dollar">$</span> Price AI</a>
+      <div class="social-links">
+        <a href="https://tiktok.com/@trypriceai" class="social-link" target="_blank" title="TikTok">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.17 8.17 0 0 0 4.78 1.52V6.74a4.85 4.85 0 0 1-1.01-.05z"/></svg>
+        </a>
+        <a href="https://instagram.com/trypriceai" class="social-link" target="_blank" title="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://x.com/trypriceai" class="social-link" target="_blank" title="X / Twitter">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.855L1.254 2.25H8.08l4.261 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://youtube.com/@trypriceai" class="social-link" target="_blank" title="YouTube">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+      </div>
+      <div class="footer-links">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+        <a href="mailto:hello@trypriceai.app">Contact</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 Price AI. All rights reserved.</div>
+  </footer>
+
+</body>
+</html>
