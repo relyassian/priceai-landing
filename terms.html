@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Use — Price AI</title>
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="description" content="Price AI Terms of Use — subscription terms, cancellation policy, and your rights as a user." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #1DB954;
+      --green-dim: #179443;
+      --dark: #0a0a0a;
+      --darker: #050505;
+      --card: #111111;
+      --card2: #161616;
+      --border: rgba(255,255,255,0.07);
+      --text: #f0f0f0;
+      --muted: #888;
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5vw;
+      height: 68px;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-logo .dollar { color: var(--green); }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green);
+      color: #000;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 10px 20px;
+      border-radius: 100px;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .nav-cta:hover { background: #22d45e; transform: scale(1.03); }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      padding: 140px 5vw 60px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .page-header .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      margin-bottom: 32px;
+      transition: color 0.2s;
+    }
+
+    .page-header .back-link:hover { color: var(--green); }
+
+    .page-header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .page-header .last-updated {
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+
+    /* ── LEGAL CONTENT ── */
+    .legal-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 5vw 100px;
+    }
+
+    .legal-content section {
+      margin-bottom: 48px;
+    }
+
+    .legal-content h2 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .legal-content h3 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 10px;
+      margin-top: 24px;
+    }
+
+    .legal-content p {
+      color: #b0b0b0;
+      font-size: 0.95rem;
+      line-height: 1.75;
+      margin-bottom: 14px;
+      font-weight: 300;
+    }
+
+    .legal-content ul, .legal-content ol {
+      color: #b0b0b0;
+      font-size: 0.95rem;
+      line-height: 1.75;
+      font-weight: 300;
+      padding-left: 20px;
+      margin-bottom: 14px;
+    }
+
+    .legal-content li {
+      margin-bottom: 8px;
+    }
+
+    .legal-content a {
+      color: var(--green);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .legal-content a:hover { opacity: 0.8; text-decoration: underline; }
+
+    .highlight-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--green);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 24px;
+    }
+
+    .highlight-box p {
+      margin-bottom: 0;
+      color: #ccc;
+    }
+
+    .subscription-box {
+      background: var(--card);
+      border: 1px solid rgba(29,185,84,0.2);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+
+    .subscription-box h3 {
+      color: var(--green);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      margin-top: 0;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .price-row:last-child { border-bottom: none; }
+
+    .price-plan {
+      font-family: var(--font-display);
+      font-weight: 600;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .price-amount {
+      font-family: var(--font-display);
+      font-weight: 800;
+      color: var(--green);
+      font-size: 1.1rem;
+    }
+
+    .price-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 48px 5vw;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .footer-logo .dollar { color: var(--green); }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--text); }
+
+    .social-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .social-link {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: border-color 0.2s, color 0.2s, transform 0.15s;
+    }
+
+    .social-link:hover {
+      border-color: var(--green);
+      color: var(--green);
+      transform: scale(1.1);
+    }
+
+    .footer-copy {
+      color: var(--muted);
+      font-size: 0.78rem;
+      text-align: center;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (max-width: 768px) {
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+      .social-links { justify-content: center; }
+      .footer-links { justify-content: center; }
+      .price-row { flex-direction: column; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="https://trypriceai.app" class="nav-logo">
+      <span class="dollar">$</span> Price AI
+    </a>
+    <a href="https://apps.apple.com/app/price-ai/id6760505536" class="nav-cta" target="_blank">
+      Download Free
+    </a>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <a href="https://trypriceai.app" class="back-link">&#8592; Back to trypriceai.app</a>
+    <h1>Terms of Use</h1>
+    <p class="last-updated">Last updated: April 20, 2026</p>
+  </div>
+
+  <!-- LEGAL CONTENT -->
+  <div class="legal-content">
+
+    <div class="highlight-box">
+      <p>Please read these Terms of Use carefully before downloading or using Price AI. By using the app, you agree to be bound by these terms. If you do not agree, do not use Price AI.</p>
+    </div>
+
+    <section>
+      <h2>1. Acceptance of Terms</h2>
+      <p>These Terms of Use ("Terms") constitute a legally binding agreement between you and Price AI Inc. ("Price AI," "we," "our," or "us") governing your access to and use of the Price AI mobile application, website at <a href="https://trypriceai.app">trypriceai.app</a>, and any related services (collectively, the "Service").</p>
+      <p>By downloading, installing, or using Price AI, you confirm that you are at least 13 years of age (or the age of digital consent in your jurisdiction), that you have read and understood these Terms, and that you agree to be bound by them. If you are using the Service on behalf of an organization, you represent that you have the authority to bind that organization.</p>
+    </section>
+
+    <section>
+      <h2>2. Description of Service</h2>
+      <p>Price AI is a mobile application that uses artificial intelligence and your device's camera to identify consumer products and provide real-time price comparisons across retailers. Features include:</p>
+      <ul>
+        <li>AI-powered product identification via camera or photo library.</li>
+        <li>Real-time price comparison across 50+ retailers.</li>
+        <li>Deal Score rating (1–100) for evaluated products.</li>
+        <li>Saved items list and cumulative savings tracker.</li>
+        <li>AI Shopping Assistant powered by GPT-4o.</li>
+        <li>Scan history across devices (requires account).</li>
+      </ul>
+      <p>Price results are sourced from third-party APIs and are provided for informational purposes. We do not guarantee the accuracy, completeness, or availability of any price data. Prices change frequently and may differ at the time of purchase.</p>
+    </section>
+
+    <section>
+      <h2>3. Account Registration</h2>
+      <p>Certain features of the Service require you to create an account. You may sign in using Apple Sign In, Google Sign In, or email. You are responsible for:</p>
+      <ul>
+        <li>Providing accurate and current account information.</li>
+        <li>Maintaining the confidentiality of your account credentials.</li>
+        <li>All activity that occurs under your account.</li>
+      </ul>
+      <p>You may use the app as a guest without an account, but your scan history and saved items will not sync across devices.</p>
+    </section>
+
+    <section>
+      <h2>4. Subscriptions and Billing</h2>
+
+      <div class="subscription-box">
+        <h3>Subscription Plans</h3>
+        <div class="price-row">
+          <div>
+            <div class="price-plan">Yearly Plan</div>
+            <div class="price-note">Includes 3-day free trial — best value</div>
+          </div>
+          <div>
+            <div class="price-amount">$39.99 / year</div>
+          </div>
+        </div>
+        <div class="price-row">
+          <div>
+            <div class="price-plan">Monthly Plan</div>
+            <div class="price-note">Billed every month</div>
+          </div>
+          <div>
+            <div class="price-amount">$9.99 / month</div>
+          </div>
+        </div>
+      </div>
+
+      <h3>4.1 Auto-Renewable Subscriptions</h3>
+      <p>Price AI offers auto-renewable subscriptions through Apple's In-App Purchase system. By starting a free trial or purchasing a subscription, you authorize Apple to charge your Apple ID account on a recurring basis at the applicable rate listed above.</p>
+      <ul>
+        <li><strong>Yearly Plan:</strong> $39.99 per year, automatically renewed annually.</li>
+        <li><strong>Monthly Plan:</strong> $9.99 per month, automatically renewed each month.</li>
+      </ul>
+      <p>Subscription charges are billed to your Apple ID at the time of purchase confirmation, or at the end of a free trial period if one was offered. Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current billing period.</p>
+
+      <h3>4.2 Free Trial</h3>
+      <p>New subscribers may be offered a 3-day free trial. The trial converts automatically to a paid subscription at the end of the trial period unless you cancel at least 24 hours before the trial ends. You will not be charged during the trial period. Any unused portion of a free trial is forfeited when you purchase a subscription.</p>
+
+      <h3>4.3 Price Changes</h3>
+      <p>We reserve the right to adjust subscription pricing. We will notify you of any price changes in advance and in accordance with Apple's guidelines. Continued use of the Service after a price change constitutes your acceptance of the new price.</p>
+
+      <h3>4.4 Cancellation Policy</h3>
+      <p>You may cancel your subscription at any time through your Apple ID account settings:</p>
+      <ol>
+        <li>Open the <strong>Settings</strong> app on your iOS device.</li>
+        <li>Tap your name at the top, then tap <strong>Subscriptions</strong>.</li>
+        <li>Tap <strong>Price AI</strong> and select <strong>Cancel Subscription</strong>.</li>
+      </ol>
+      <p>Cancellation takes effect at the end of the current billing period. You will retain access to premium features until the period expires. We do not offer refunds for partially used subscription periods, except as required by applicable law or Apple's refund policies.</p>
+      <p>To request a refund from Apple, visit <a href="https://reportaproblem.apple.com" target="_blank">reportaproblem.apple.com</a>.</p>
+
+      <h3>4.5 Subscription Management</h3>
+      <p>All subscription purchases, renewals, and billing are handled by Apple. Price AI does not have direct access to your payment information. Your subscription and billing can be managed through your Apple ID account at any time.</p>
+    </section>
+
+    <section>
+      <h2>5. Apple End User License Agreement</h2>
+      <p>Your use of Price AI is also subject to Apple's standard End User License Agreement (EULA). You can review Apple's standard EULA at:</p>
+      <p><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank">https://www.apple.com/legal/internet-services/itunes/dev/stdeula/</a></p>
+      <p>Apple is not a party to these Terms and has no obligation to provide any maintenance or support services with respect to Price AI. In the event of any conflict between these Terms and Apple's EULA, these Terms shall govern to the extent they are not inconsistent with Apple's EULA.</p>
+    </section>
+
+    <section>
+      <h2>6. Camera and Device Permissions</h2>
+      <p>Price AI's core functionality requires access to your device's camera. By granting camera permission, you authorize the app to capture images when you actively initiate a scan. We do not access your camera in the background or without your explicit action.</p>
+      <p>You may also grant access to your photo library to upload existing images for scanning. You can revoke camera or photo library access at any time through your device's Settings app; however, this will prevent core scanning features from working.</p>
+      <p>Notifications permission is optional and used only for deal alerts and subscription-related reminders. Push notifications can be disabled at any time in your device Settings.</p>
+    </section>
+
+    <section>
+      <h2>7. Acceptable Use</h2>
+      <p>You agree to use Price AI only for lawful personal purposes. You agree not to:</p>
+      <ul>
+        <li>Use the Service to violate any applicable law or regulation.</li>
+        <li>Attempt to reverse engineer, decompile, or extract the source code of the app.</li>
+        <li>Use automated means (bots, scrapers) to access or query the Service.</li>
+        <li>Attempt to gain unauthorized access to any system or network associated with the Service.</li>
+        <li>Share, sell, or transfer your account to another person.</li>
+        <li>Submit misleading, fraudulent, or harmful content to the AI shopping assistant.</li>
+        <li>Use the Service for commercial resale or redistribution of pricing data without our written consent.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>8. Intellectual Property</h2>
+      <p>All content, design, code, trademarks, logos, and branding in Price AI are owned by or licensed to Price AI Inc. You are granted a limited, non-exclusive, non-transferable, revocable license to use the app for personal, non-commercial purposes in accordance with these Terms.</p>
+      <p>You may not copy, reproduce, distribute, modify, or create derivative works from any part of the Service without our prior written permission.</p>
+      <p>User-generated content (such as product scans or chat messages) remains yours, but you grant us a non-exclusive license to use that content to provide and improve the Service.</p>
+    </section>
+
+    <section>
+      <h2>9. Disclaimer of Warranties</h2>
+      <p>THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, ACCURACY, OR NON-INFRINGEMENT.</p>
+      <p>We do not warrant that:</p>
+      <ul>
+        <li>Price data will be accurate, complete, or current at the time of display.</li>
+        <li>AI product identification will be error-free or suitable for all products.</li>
+        <li>The Service will be uninterrupted, secure, or free of errors or bugs.</li>
+      </ul>
+      <p>Price AI is a tool to assist your shopping decisions, not a guarantee of product pricing. Always verify prices directly with retailers before making a purchase.</p>
+    </section>
+
+    <section>
+      <h2>10. Limitation of Liability</h2>
+      <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, PRICE AI INC. AND ITS OFFICERS, DIRECTORS, EMPLOYEES, AND AGENTS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING FROM YOUR USE OF OR INABILITY TO USE THE SERVICE, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, OR GOODWILL.</p>
+      <p>OUR TOTAL LIABILITY TO YOU FOR ANY CLAIMS ARISING UNDER THESE TERMS SHALL NOT EXCEED THE AMOUNT YOU PAID TO PRICE AI IN THE 12 MONTHS PRECEDING THE CLAIM.</p>
+    </section>
+
+    <section>
+      <h2>11. Indemnification</h2>
+      <p>You agree to defend, indemnify, and hold harmless Price AI Inc. and its officers, directors, employees, and agents from and against any claims, damages, liabilities, costs, and expenses (including reasonable attorneys' fees) arising out of or relating to your use of the Service, your violation of these Terms, or your violation of any third-party rights.</p>
+    </section>
+
+    <section>
+      <h2>12. Third-Party Links and Services</h2>
+      <p>The Service may display links to retailer websites or third-party services. We are not responsible for the content, accuracy, privacy practices, or availability of any third-party websites. Visiting third-party sites is at your own risk and subject to their own terms and policies.</p>
+    </section>
+
+    <section>
+      <h2>13. Termination</h2>
+      <p>We reserve the right to suspend or terminate your account and access to the Service at any time, with or without notice, for conduct that violates these Terms or that we believe is harmful to other users, the Service, or third parties.</p>
+      <p>You may terminate your account at any time by deleting the app and cancelling any active subscription. Termination does not entitle you to a refund of any prepaid subscription fees.</p>
+    </section>
+
+    <section>
+      <h2>14. Governing Law and Dispute Resolution</h2>
+      <p>These Terms are governed by and construed in accordance with the laws of the State of California, United States, without regard to its conflict of law provisions.</p>
+      <p>Any dispute arising from these Terms or your use of the Service shall first be attempted to be resolved through good-faith negotiation. If unresolved, disputes shall be submitted to binding arbitration in Los Angeles County, California, under the rules of the American Arbitration Association, except that either party may seek injunctive relief in a court of competent jurisdiction.</p>
+    </section>
+
+    <section>
+      <h2>15. Changes to These Terms</h2>
+      <p>We may update these Terms from time to time. When we make material changes, we will update the "Last updated" date above and may notify you within the app or by email. Your continued use of Price AI after any changes constitutes your acceptance of the updated Terms.</p>
+    </section>
+
+    <section>
+      <h2>16. Contact Us</h2>
+      <p>If you have any questions about these Terms, please contact us:</p>
+      <ul>
+        <li>Email: <a href="mailto:hello@trypriceai.app">hello@trypriceai.app</a></li>
+        <li>Website: <a href="https://trypriceai.app">trypriceai.app</a></li>
+      </ul>
+    </section>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <a href="https://trypriceai.app" class="footer-logo"><span class="dollar">$</span> Price AI</a>
+      <div class="social-links">
+        <a href="https://tiktok.com/@trypriceai" class="social-link" target="_blank" title="TikTok">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.17 8.17 0 0 0 4.78 1.52V6.74a4.85 4.85 0 0 1-1.01-.05z"/></svg>
+        </a>
+        <a href="https://instagram.com/trypriceai" class="social-link" target="_blank" title="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://x.com/trypriceai" class="social-link" target="_blank" title="X / Twitter">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.855L1.254 2.25H8.08l4.261 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://youtube.com/@trypriceai" class="social-link" target="_blank" title="YouTube">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+      </div>
+      <div class="footer-links">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms" style="color: var(--text);">Terms of Service</a>
+        <a href="mailto:hello@trypriceai.app">Contact</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 Price AI. All rights reserved.</div>
+  </footer>
+
+</body>
+</html>

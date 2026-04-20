@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Price AI</title>
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="description" content="Price AI Privacy Policy — how we collect, use, and protect your data." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #1DB954;
+      --green-dim: #179443;
+      --dark: #0a0a0a;
+      --darker: #050505;
+      --card: #111111;
+      --card2: #161616;
+      --border: rgba(255,255,255,0.07);
+      --text: #f0f0f0;
+      --muted: #888;
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5vw;
+      height: 68px;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-logo .dollar { color: var(--green); }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green);
+      color: #000;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 10px 20px;
+      border-radius: 100px;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .nav-cta:hover { background: #22d45e; transform: scale(1.03); }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      padding: 140px 5vw 60px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .page-header .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      margin-bottom: 32px;
+      transition: color 0.2s;
+    }
+
+    .page-header .back-link:hover { color: var(--green); }
+
+    .page-header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .page-header .last-updated {
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+
+    /* ── LEGAL CONTENT ── */
+    .legal-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 5vw 100px;
+    }
+
+    .legal-content section {
+      margin-bottom: 48px;
+    }
+
+    .legal-content h2 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .legal-content h3 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 10px;
+      margin-top: 24px;
+    }
+
+    .legal-content p {
+      color: #b0b0b0;
+      font-size: 0.95rem;
+      line-height: 1.75;
+      margin-bottom: 14px;
+      font-weight: 300;
+    }
+
+    .legal-content ul, .legal-content ol {
+      color: #b0b0b0;
+      font-size: 0.95rem;
+      line-height: 1.75;
+      font-weight: 300;
+      padding-left: 20px;
+      margin-bottom: 14px;
+    }
+
+    .legal-content li {
+      margin-bottom: 8px;
+    }
+
+    .legal-content a {
+      color: var(--green);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .legal-content a:hover { opacity: 0.8; text-decoration: underline; }
+
+    .highlight-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--green);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 24px;
+    }
+
+    .highlight-box p {
+      margin-bottom: 0;
+      color: #ccc;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 48px 5vw;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .footer-logo .dollar { color: var(--green); }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--text); }
+
+    .social-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .social-link {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: border-color 0.2s, color 0.2s, transform 0.15s;
+    }
+
+    .social-link:hover {
+      border-color: var(--green);
+      color: var(--green);
+      transform: scale(1.1);
+    }
+
+    .footer-copy {
+      color: var(--muted);
+      font-size: 0.78rem;
+      text-align: center;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (max-width: 768px) {
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+      .social-links { justify-content: center; }
+      .footer-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="https://trypriceai.app" class="nav-logo">
+      <span class="dollar">$</span> Price AI
+    </a>
+    <a href="https://apps.apple.com/app/price-ai/id6760505536" class="nav-cta" target="_blank">
+      Download Free
+    </a>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <a href="https://trypriceai.app" class="back-link">&#8592; Back to trypriceai.app</a>
+    <h1>Privacy Policy</h1>
+    <p class="last-updated">Last updated: April 20, 2026</p>
+  </div>
+
+  <!-- LEGAL CONTENT -->
+  <div class="legal-content">
+
+    <div class="highlight-box">
+      <p>Your privacy matters to us. This policy explains exactly what data Price AI collects, why we collect it, and how we protect it. We do not sell your personal data to third parties.</p>
+    </div>
+
+    <section>
+      <h2>1. About Price AI</h2>
+      <p>Price AI ("we," "our," or "us") is a mobile application developed and operated by Price AI Inc. The app uses artificial intelligence and camera access to identify products and provide real-time price comparisons across 50+ retailers. Our goal is to help you make informed purchasing decisions and save money.</p>
+      <p>This Privacy Policy applies to the Price AI mobile application available on the Apple App Store and any related services, websites, or platforms we operate, including <a href="https://trypriceai.app">trypriceai.app</a>.</p>
+    </section>
+
+    <section>
+      <h2>2. Information We Collect</h2>
+
+      <h3>2.1 Information You Provide Directly</h3>
+      <ul>
+        <li><strong>Account information:</strong> When you create an account, we collect your name and email address. If you sign in with Apple or Google, we receive the information those services share with us (typically your name and email).</li>
+        <li><strong>Communications:</strong> If you contact our support team, we retain records of that correspondence.</li>
+      </ul>
+
+      <h3>2.2 Camera and Image Data</h3>
+      <p>Price AI requests access to your device's camera to enable its core functionality — product scanning. When you use the scan feature:</p>
+      <ul>
+        <li>Photos you capture are transmitted to our servers and processed by an AI model (OpenAI GPT-4o Vision) to identify the product.</li>
+        <li>Images are used solely for product identification and are not stored permanently beyond the time required to process your request.</li>
+        <li>We do not use your images to identify people or build facial recognition profiles.</li>
+        <li>You may also upload photos from your photo library; the same handling applies.</li>
+      </ul>
+      <p>Camera access is required only when you actively initiate a scan. We do not access your camera in the background.</p>
+
+      <h3>2.3 Usage and Scan Data</h3>
+      <ul>
+        <li>Items you scan, including product names, categories, and price results.</li>
+        <li>Items you save to your saved list.</li>
+        <li>Your scan history and cumulative savings figures.</li>
+        <li>In-app chat messages sent to the AI Shopping Assistant (to provide responses and improve service).</li>
+        <li>Features you use, buttons you tap, and screens you visit (collected via PostHog analytics).</li>
+      </ul>
+
+      <h3>2.4 Subscription and Payment Information</h3>
+      <p>Subscription purchases are processed through Apple's App Store using In-App Purchases. We do not directly handle or store your credit card or payment information. Our subscription management provider, RevenueCat, receives anonymized purchase records to determine your subscription status.</p>
+
+      <h3>2.5 Device and Technical Information</h3>
+      <ul>
+        <li>Device type, operating system, and version.</li>
+        <li>App version and unique device identifiers (for analytics and crash reporting).</li>
+        <li>IP address (used for security, fraud prevention, and approximate location country).</li>
+        <li>Push notification tokens (if you grant notification permission).</li>
+      </ul>
+
+      <h3>2.6 Marketing Attribution</h3>
+      <p>We use AppsFlyer to understand how you discovered Price AI (e.g., from a TikTok ad, an influencer link, or organic search). This helps us allocate our marketing budget effectively. AppsFlyer may collect your device advertising identifier (IDFA) if you have permitted ad tracking on your device, subject to Apple's App Tracking Transparency framework.</p>
+    </section>
+
+    <section>
+      <h2>3. How We Use Your Information</h2>
+      <p>We use the information we collect to:</p>
+      <ul>
+        <li>Identify products from camera images and return price comparison results.</li>
+        <li>Maintain your account, scan history, saved items, and savings tracker across devices.</li>
+        <li>Process and manage your subscription through RevenueCat and Apple's In-App Purchase system.</li>
+        <li>Provide and improve the AI Shopping Assistant (powered by OpenAI GPT-4o).</li>
+        <li>Send you push notifications about deals or trial reminders, if you have opted in.</li>
+        <li>Analyze app usage patterns to improve features and performance.</li>
+        <li>Respond to customer support requests.</li>
+        <li>Detect, investigate, and prevent fraudulent or unauthorized use.</li>
+        <li>Comply with applicable legal obligations.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>4. Third-Party Services</h2>
+      <p>Price AI integrates with the following third-party services, each with its own privacy policy:</p>
+      <ul>
+        <li><strong>Supabase</strong> — database and authentication infrastructure. <a href="https://supabase.com/privacy" target="_blank">Privacy Policy</a></li>
+        <li><strong>OpenAI</strong> — AI-powered product recognition and chatbot. Images and chat messages are processed by OpenAI's API. <a href="https://openai.com/policies/privacy-policy" target="_blank">Privacy Policy</a></li>
+        <li><strong>RevenueCat</strong> — subscription management and analytics. <a href="https://www.revenuecat.com/privacy" target="_blank">Privacy Policy</a></li>
+        <li><strong>PostHog</strong> — in-app analytics and event tracking. <a href="https://posthog.com/privacy" target="_blank">Privacy Policy</a></li>
+        <li><strong>AppsFlyer</strong> — marketing attribution and install tracking. <a href="https://www.appsflyer.com/legal/services-privacy-policy/" target="_blank">Privacy Policy</a></li>
+        <li><strong>eBay API / SerpAPI (Google Shopping)</strong> — real-time price data retrieval.</li>
+        <li><strong>Apple Sign In / Google Sign In</strong> — third-party authentication options.</li>
+      </ul>
+      <p>We do not sell, rent, or trade your personal data to any third party for their own marketing purposes.</p>
+    </section>
+
+    <section>
+      <h2>5. Data Retention</h2>
+      <p>We retain your account data and scan history for as long as your account remains active. If you delete your account, we will delete your personal data within 30 days, except where we are required to retain it for legal or financial compliance purposes (e.g., transaction records).</p>
+      <p>Camera images submitted for scanning are processed in real time and are not retained on our servers beyond the immediate processing window.</p>
+    </section>
+
+    <section>
+      <h2>6. Data Security</h2>
+      <p>We implement industry-standard technical and organizational safeguards to protect your information, including encrypted data transmission (TLS), access controls, and secure cloud infrastructure. However, no system is perfectly secure, and we cannot guarantee absolute security of your data.</p>
+      <p>If you believe your account has been compromised, please contact us immediately at <a href="mailto:hello@trypriceai.app">hello@trypriceai.app</a>.</p>
+    </section>
+
+    <section>
+      <h2>7. Children's Privacy</h2>
+      <p>Price AI is not directed to children under the age of 13, and we do not knowingly collect personal information from children under 13. If we become aware that we have inadvertently collected personal information from a child under 13, we will promptly delete it. If you believe we have collected such information, please contact us at <a href="mailto:hello@trypriceai.app">hello@trypriceai.app</a>.</p>
+    </section>
+
+    <section>
+      <h2>8. Your Rights and Choices</h2>
+      <p>Depending on your jurisdiction, you may have certain rights regarding your personal data:</p>
+      <ul>
+        <li><strong>Access:</strong> Request a copy of the personal data we hold about you.</li>
+        <li><strong>Correction:</strong> Request that we correct inaccurate or incomplete data.</li>
+        <li><strong>Deletion:</strong> Request deletion of your account and associated personal data.</li>
+        <li><strong>Opt-out of push notifications:</strong> Disable notifications at any time through your device's Settings app.</li>
+        <li><strong>Opt-out of analytics tracking:</strong> You may limit tracking by adjusting your device's privacy settings (Settings > Privacy & Security > Tracking on iOS).</li>
+      </ul>
+      <p>To exercise any of these rights, contact us at <a href="mailto:hello@trypriceai.app">hello@trypriceai.app</a>. We will respond within 30 days.</p>
+    </section>
+
+    <section>
+      <h2>9. International Data Transfers</h2>
+      <p>Price AI is operated from the United States. If you are located outside the United States, your data will be transferred to and processed in the United States or other countries where our service providers operate. By using Price AI, you consent to this transfer.</p>
+    </section>
+
+    <section>
+      <h2>10. California Privacy Rights (CCPA)</h2>
+      <p>If you are a California resident, you have the right to know what personal information we collect, the right to request deletion of your personal information, and the right to opt out of the "sale" of personal information. We do not sell your personal information. To exercise your rights, contact us at <a href="mailto:hello@trypriceai.app">hello@trypriceai.app</a>.</p>
+    </section>
+
+    <section>
+      <h2>11. Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. When we make material changes, we will update the "Last updated" date at the top of this page and, where appropriate, notify you via the app or by email. Your continued use of Price AI after any changes constitutes your acceptance of the updated policy.</p>
+    </section>
+
+    <section>
+      <h2>12. Contact Us</h2>
+      <p>If you have any questions about this Privacy Policy or our data practices, please contact us:</p>
+      <ul>
+        <li>Email: <a href="mailto:hello@trypriceai.app">hello@trypriceai.app</a></li>
+        <li>Website: <a href="https://trypriceai.app">trypriceai.app</a></li>
+      </ul>
+    </section>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <a href="https://trypriceai.app" class="footer-logo"><span class="dollar">$</span> Price AI</a>
+      <div class="social-links">
+        <a href="https://tiktok.com/@trypriceai" class="social-link" target="_blank" title="TikTok">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.17 8.17 0 0 0 4.78 1.52V6.74a4.85 4.85 0 0 1-1.01-.05z"/></svg>
+        </a>
+        <a href="https://instagram.com/trypriceai" class="social-link" target="_blank" title="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://x.com/trypriceai" class="social-link" target="_blank" title="X / Twitter">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.855L1.254 2.25H8.08l4.261 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://youtube.com/@trypriceai" class="social-link" target="_blank" title="YouTube">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+      </div>
+      <div class="footer-links">
+        <a href="/privacy" style="color: var(--text);">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+        <a href="mailto:hello@trypriceai.app">Contact</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 Price AI. All rights reserved.</div>
+  </footer>
+
+</body>
+</html>
