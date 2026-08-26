@@ -107,7 +107,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:grid;grid-template-c
 .score-row{display:flex;align-items:center;gap:16px}
 .score-label-col{font-size:0.8rem;color:rgba(255,255,255,0.45);width:96px;text-align:right;flex-shrink:0}
 .score-bar-track{flex:1;height:6px;background:rgba(255,255,255,0.07);border-radius:100px;overflow:hidden}
-.score-bar-fill{height:100%;border-radius:100px}
+.score-bar-fill{height:100%;border-radius:100px;width:0;transition:width 0.7s ease}
+.score-row.visible .score-bar-fill{width:var(--w)}
+.score-row.d1 .score-bar-fill{transition-delay:0.1s}
+.score-row.d2 .score-bar-fill{transition-delay:0.2s}
+.score-row.d3 .score-bar-fill{transition-delay:0.3s}
+.score-row.d4 .score-bar-fill{transition-delay:0.4s}
 .score-val{font-family:var(--font-serif);font-size:1.1rem;width:32px;font-style:italic}
 
 /* FEATURES */
@@ -277,11 +282,11 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
       <p class="section-sub fade-up">Our AI analyzes current market prices and retailer markups to give every product a score from 1 to 100. No more guessing. No more regret.</p>
       <div class="fade-up"><div class="score-track"></div><div class="score-labels"><span>Overpaying</span><span>Fair Price</span><span>Great Deal</span><span>Excellent</span></div></div>
     </div>
-    <div class="score-items fade-up">
-      <div class="score-row"><div class="score-label-col">eBay</div><div class="score-bar-track"><div class="score-bar-fill" style="width:88%;background:#22c55e"></div></div><div class="score-val" style="color:#22c55e">88</div></div>
-      <div class="score-row"><div class="score-label-col">Walmart</div><div class="score-bar-track"><div class="score-bar-fill" style="width:71%;background:#22c55e"></div></div><div class="score-val" style="color:#22c55e">71</div></div>
-      <div class="score-row"><div class="score-label-col">Foot Locker</div><div class="score-bar-track"><div class="score-bar-fill" style="width:28%;background:#ef4444"></div></div><div class="score-val" style="color:#ef4444">28</div></div>
-      <div class="score-row"><div class="score-label-col">StockX</div><div class="score-bar-track"><div class="score-bar-fill" style="width:55%;background:#f59e0b"></div></div><div class="score-val" style="color:#f59e0b">55</div></div>
+    <div class="score-items">
+      <div class="score-row fade-up d1"><div class="score-label-col">eBay</div><div class="score-bar-track"><div class="score-bar-fill" style="--w:88%;background:#22c55e"></div></div><div class="score-val" style="color:#22c55e">88</div></div>
+      <div class="score-row fade-up d2"><div class="score-label-col">Walmart</div><div class="score-bar-track"><div class="score-bar-fill" style="--w:71%;background:#22c55e"></div></div><div class="score-val" style="color:#22c55e">71</div></div>
+      <div class="score-row fade-up d3"><div class="score-label-col">Foot Locker</div><div class="score-bar-track"><div class="score-bar-fill" style="--w:28%;background:#ef4444"></div></div><div class="score-val" style="color:#ef4444">28</div></div>
+      <div class="score-row fade-up d4"><div class="score-label-col">StockX</div><div class="score-bar-track"><div class="score-bar-fill" style="--w:55%;background:#f59e0b"></div></div><div class="score-val" style="color:#f59e0b">55</div></div>
     </div>
   </div>
 </div>
