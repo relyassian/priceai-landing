@@ -95,14 +95,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:grid;grid-template-c
 .step-name{font-size:1.05rem;font-weight:700;margin-bottom:10px;letter-spacing:-0.02em}
 .step-desc{font-size:0.875rem;color:var(--gray-600);line-height:1.75;font-weight:300}
 
-/* SCREENSHOTS */
-.screenshots-section{background:var(--gray-100);padding:112px 48px}
-.screenshots-inner{max-width:1100px;margin:0 auto}
-.screenshots-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:60px}
-.screenshot-card img{width:100%;border-radius:28px;box-shadow:0 20px 60px rgba(0,0,0,0.1);display:block;transition:transform 0.3s,box-shadow 0.3s}
-.screenshot-card img:hover{transform:translateY(-8px);box-shadow:0 32px 80px rgba(0,0,0,0.16)}
-.screenshot-caption{font-size:0.72rem;color:var(--gray-600);margin-top:14px;font-weight:600;text-align:center;letter-spacing:0.07em;text-transform:uppercase}
-
 /* DEAL SCORE */
 .deal-score-section{background:var(--black);padding:112px 48px}
 .deal-score-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:center}
@@ -174,7 +166,6 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
   .nav-links{display:none}
   .steps,.features-grid{grid-template-columns:1fr}
   .deal-score-inner{grid-template-columns:1fr;gap:56px}
-  .screenshots-grid{grid-template-columns:repeat(2,1fr)}
   .footer-top{grid-template-columns:1fr 1fr}
   .stats-inner{flex-wrap:wrap;gap:24px}
   .stat-divider{display:none}
@@ -183,9 +174,8 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
   nav{padding:0 20px;grid-template-columns:1fr 1fr}
   .btn-play-nav{display:none !important}
   .btn-appstore-nav{font-size:0.72rem;padding:7px 12px}
-  .hero,.section,.screenshots-section,.partner-section,.cta-section,.stats-bar,.deal-score-section{padding-left:24px;padding-right:24px}
+  .hero,.section,.partner-section,.cta-section,.stats-bar,.deal-score-section{padding-left:24px;padding-right:24px}
   footer{padding:48px 24px 36px}
-  .screenshots-grid{grid-template-columns:1fr 1fr;gap:14px}
   .hero-actions{flex-direction:column;align-items:center}
   .badge-appstore,.badge-googleplay{width:100%;max-width:220px;justify-content:center}
   .footer-top{grid-template-columns:1fr}
@@ -275,19 +265,6 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
       <div class="step-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
       <div class="step-name">See Your Deal Score</div>
       <div class="step-desc">Every result scored 1–100. Know in seconds if it's a steal — or if you can do better.</div>
-    </div>
-  </div>
-</div>
-
-<div class="screenshots-section">
-  <div class="screenshots-inner">
-    <div class="eyebrow fade-up">See It In Action</div>
-    <h2 class="section-title fade-up">The whole experience,<br><b>four screens</b></h2>
-    <div class="screenshots-grid">
-      <div class="screenshot-card fade-up d1"><img src="screen1.png" alt="Deal score"/><div class="screenshot-caption">Deal Score</div></div>
-      <div class="screenshot-card fade-up d2"><img src="screen2.png" alt="Price comparison"/><div class="screenshot-caption">Price comparison</div></div>
-      <div class="screenshot-card fade-up d3"><img src="screen3.png" alt="Home savings"/><div class="screenshot-caption">Track savings</div></div>
-      <div class="screenshot-card fade-up d4"><img src="screen4.png" alt="Camera scan"/><div class="screenshot-caption">Scan anything</div></div>
     </div>
   </div>
 </div>
