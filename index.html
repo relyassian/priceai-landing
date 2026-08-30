@@ -122,6 +122,29 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:grid;grid-template-c
 .feature-name{font-size:1rem;font-weight:700;margin-bottom:10px;letter-spacing:-0.02em}
 .feature-desc{font-size:0.85rem;color:var(--gray-600);line-height:1.75;font-weight:300}
 
+/* ANDROID WAITLIST */
+.waitlist-section{background:var(--black);padding:112px 48px;text-align:center;position:relative;overflow:hidden;border-top:1px solid rgba(255,255,255,0.06)}
+.waitlist-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(30,132,73,0.13) 0%,transparent 70%);pointer-events:none}
+.waitlist-inner{max-width:480px;margin:0 auto;position:relative;z-index:1}
+.waitlist-section .eyebrow{color:rgba(30,132,73,0.85);justify-content:center}
+.waitlist-section .section-title{color:#fff;font-size:clamp(2.2rem,4vw,3.2rem);margin-left:auto;margin-right:auto}
+.waitlist-section .section-sub{color:rgba(255,255,255,0.4);margin:0 auto 36px;max-width:400px}
+.waitlist-form{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.waitlist-input{flex:1;min-width:0;background:rgba(255,255,255,0.05);border:1.5px solid rgba(255,255,255,0.14);color:#fff;font-family:var(--font-sans);font-size:0.9rem;padding:14px 20px;border-radius:100px;outline:none;transition:border-color 0.2s}
+.waitlist-input::placeholder{color:rgba(255,255,255,0.3)}
+.waitlist-input:focus{border-color:var(--green)}
+.waitlist-submit{background:var(--white);color:var(--black);font-weight:700;font-size:0.9rem;padding:14px 30px;border:none;border-radius:100px;cursor:pointer;transition:opacity 0.2s,transform 0.2s;letter-spacing:-0.01em;white-space:nowrap}
+.waitlist-submit:hover{opacity:0.85;transform:translateY(-2px)}
+.waitlist-submit:disabled{opacity:0.5;cursor:not-allowed;transform:none}
+.waitlist-message{margin-top:18px;font-size:0.85rem;font-weight:500;min-height:1.2em}
+.waitlist-message.is-success{color:var(--green)}
+.waitlist-message.is-error{color:#ef4444}
+.waitlist-success-icon{width:44px;height:44px;border-radius:50%;background:rgba(30,132,73,0.15);border:1px solid rgba(30,132,73,0.4);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:var(--green)}
+@media(max-width:600px){
+  .waitlist-form{flex-direction:column;align-items:stretch}
+  .waitlist-submit{width:100%}
+}
+
 /* PARTNER */
 .partner-section{background:var(--black);padding:112px 48px;text-align:center;position:relative;overflow:hidden}
 .partner-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(30,132,73,0.1) 0%,transparent 70%);pointer-events:none}
@@ -313,6 +336,20 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
   </div>
 </div>
 
+<div class="waitlist-section" id="android-waitlist">
+  <div class="waitlist-glow"></div>
+  <div class="waitlist-inner" id="waitlist-content">
+    <div class="eyebrow fade-up">Coming to Android</div>
+    <h2 class="section-title fade-up">Be first to know</h2>
+    <p class="section-sub fade-up">Price AI is headed to Google Play. Drop your email and we'll let you know the moment it's live.</p>
+    <form class="waitlist-form fade-up" id="waitlist-form" novalidate>
+      <input type="email" class="waitlist-input" id="waitlist-email" placeholder="you@email.com" required autocomplete="email" aria-label="Email address"/>
+      <button type="submit" class="waitlist-submit" id="waitlist-submit">Notify Me</button>
+    </form>
+    <div class="waitlist-message" id="waitlist-message" role="status" aria-live="polite"></div>
+  </div>
+</div>
+
 <div class="partner-section">
   <div class="partner-glow"></div>
   <div class="partner-inner">
@@ -383,6 +420,50 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
 <script>
 const obs = new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.1});
 document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+(function(){
+  const SUPABASE_URL = 'https://skrjsjsvocoekpfwhdqm.supabase.co';
+  const SUPABASE_KEY = 'sb_publishable_XBM-wtfOJHlFAdJkVBqoiA_c-Lx-ULl';
+  const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  const form = document.getElementById('waitlist-form');
+  const emailInput = document.getElementById('waitlist-email');
+  const submitBtn = document.getElementById('waitlist-submit');
+  const messageEl = document.getElementById('waitlist-message');
+
+  function showSuccess(){
+    form.style.display = 'none';
+    messageEl.className = 'waitlist-message is-success';
+    messageEl.innerHTML = '<div class="waitlist-success-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>You\'re on the list! We\'ll email you the moment Android launches.';
+  }
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    const email = emailInput.value.trim();
+    if(!email) return;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Joining...';
+    messageEl.className = 'waitlist-message';
+    messageEl.textContent = '';
+
+    try{
+      const { error } = await supabaseClient.from('android_waitlist').insert({ email: email, source: 'landing_page' });
+      if(error && error.code !== '23505'){
+        throw error;
+      }
+      showSuccess();
+    }catch(err){
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Notify Me';
+      messageEl.className = 'waitlist-message is-error';
+      messageEl.textContent = 'Something went wrong. Please try again.';
+    }
+  });
+})();
 </script>
 </body>
 </html>
