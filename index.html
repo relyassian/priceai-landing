@@ -122,6 +122,35 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:grid;grid-template-c
 .feature-name{font-size:1rem;font-weight:700;margin-bottom:10px;letter-spacing:-0.02em}
 .feature-desc{font-size:0.85rem;color:var(--gray-600);line-height:1.75;font-weight:300}
 
+/* PRICING */
+.pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:32px}
+.pricing-card{background:var(--gray-100);border-radius:24px;padding:40px 36px;position:relative}
+.pricing-card.featured{background:var(--black);color:#fff}
+.pricing-badge{position:absolute;top:-13px;left:36px;background:var(--green);color:#fff;font-size:0.66rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:6px 14px;border-radius:100px}
+.pricing-plan{font-size:0.78rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--gray-600);margin-bottom:18px}
+.pricing-card.featured .pricing-plan{color:rgba(255,255,255,0.45)}
+.pricing-price{font-family:var(--font-serif);font-size:2.9rem;font-style:italic;letter-spacing:-0.02em;line-height:1;margin-bottom:6px}
+.pricing-period{font-size:0.85rem;color:var(--gray-600);font-weight:400}
+.pricing-card.featured .pricing-period{color:rgba(255,255,255,0.4)}
+.pricing-sub-note{font-size:0.8rem;color:var(--green);font-weight:600;margin-top:10px;margin-bottom:26px}
+.pricing-features{list-style:none;margin-bottom:28px}
+.pricing-features li{font-size:0.85rem;color:var(--gray-600);padding:8px 0;padding-left:24px;position:relative;font-weight:300;line-height:1.6}
+.pricing-features li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700}
+.pricing-card.featured .pricing-features li{color:rgba(255,255,255,0.6)}
+.pricing-cta{display:flex;width:100%;justify-content:center;align-items:center;background:var(--black);color:#fff;font-weight:700;font-size:0.9rem;padding:15px 0;border-radius:100px;text-decoration:none;transition:opacity .2s,transform .2s;letter-spacing:-0.01em}
+.pricing-cta:hover{opacity:.85;transform:translateY(-2px)}
+.pricing-card.featured .pricing-cta{background:#fff;color:var(--black)}
+.pricing-footnote{text-align:center;font-size:0.85rem;color:var(--gray-600);max-width:580px;margin:0 auto;line-height:1.85;font-weight:300}
+
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:2px;background:var(--gray-200);border-radius:24px;overflow:hidden}
+.faq-item{background:var(--white)}
+.faq-item summary{list-style:none;cursor:pointer;padding:26px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:1rem;font-weight:600;letter-spacing:-0.01em}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-icon{width:22px;height:22px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--green);transition:transform 0.25s ease}
+.faq-item[open] .faq-icon{transform:rotate(45deg)}
+.faq-answer{padding:0 32px 26px;color:var(--gray-600);font-size:0.9rem;line-height:1.85;font-weight:300;max-width:660px}
+
 /* ANDROID WAITLIST */
 .waitlist-section{background:var(--black);padding:112px 48px;text-align:center;position:relative;overflow:hidden;border-top:1px solid rgba(255,255,255,0.06)}
 .waitlist-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(30,132,73,0.13) 0%,transparent 70%);pointer-events:none}
@@ -198,6 +227,9 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
   .stats-inner{flex-wrap:wrap;gap:24px}
   .stat-divider{display:none}
 }
+@media(max-width:680px){
+  .pricing-grid{grid-template-columns:1fr}
+}
 @media(max-width:600px){
   nav{padding:0 20px;grid-template-columns:1fr 1fr}
   .btn-play-nav{display:none !important}
@@ -219,6 +251,10 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
   .stat-item{padding:0 4px}
   .stat-num{font-size:clamp(1.8rem,7vw,2.5rem)}
   .score-labels{font-size:0.65rem;letter-spacing:0.04em}
+  .pricing-card{padding:32px 24px}
+  .pricing-price{font-size:2.4rem}
+  .faq-item summary{padding:20px 22px;font-size:0.92rem;gap:12px}
+  .faq-answer{padding:0 22px 22px}
 }
 </style>
 </head>
@@ -336,6 +372,94 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
   </div>
 </div>
 
+<div class="section" id="pricing">
+  <div class="eyebrow fade-up">Pricing</div>
+  <h2 class="section-title fade-up">Simple pricing,<br>no surprises</h2>
+  <p class="section-sub fade-up">Point your camera and chat with Price AI free — no subscription required. Comparing prices across retailers and seeing your Deal Score is part of Price AI's subscription, and every plan starts with a 3-day free trial.</p>
+  <div class="pricing-grid fade-up">
+    <div class="pricing-card">
+      <div class="pricing-plan">Monthly</div>
+      <div class="pricing-price">$9.99</div>
+      <div class="pricing-period">per month</div>
+      <div class="pricing-sub-note">3-day free trial included</div>
+      <ul class="pricing-features">
+        <li>Price comparison across 50+ retailers</li>
+        <li>Deal Score on every scan</li>
+        <li>Fair Market Value estimates</li>
+        <li>Unlimited scan history</li>
+      </ul>
+      <a href="https://apps.apple.com/app/price-ai-point-scan-save/id6760505536" class="pricing-cta" target="_blank">Start Free Trial</a>
+    </div>
+    <div class="pricing-card featured">
+      <div class="pricing-badge">Save 67%</div>
+      <div class="pricing-plan">Annual</div>
+      <div class="pricing-price">$39.99</div>
+      <div class="pricing-period">per year — about $3.33/month</div>
+      <div class="pricing-sub-note">3-day free trial included</div>
+      <ul class="pricing-features">
+        <li>Price comparison across 50+ retailers</li>
+        <li>Deal Score on every scan</li>
+        <li>Fair Market Value estimates</li>
+        <li>Unlimited scan history</li>
+      </ul>
+      <a href="https://apps.apple.com/app/price-ai-point-scan-save/id6760505536" class="pricing-cta" target="_blank">Start Free Trial</a>
+    </div>
+  </div>
+  <p class="pricing-footnote fade-up">Every plan includes a 3-day free trial, billed through your Apple ID. Cancel anytime before the trial ends and you won't be charged. Subscriptions auto-renew unless cancelled at least 24 hours before the period ends.</p>
+</div>
+
+<div class="section" id="faq">
+  <div class="eyebrow fade-up">FAQ</div>
+  <h2 class="section-title fade-up">Questions,<br>answered</h2>
+  <p class="section-sub fade-up">Everything you need to know before you scan.</p>
+  <div class="faq-list fade-up">
+    <details class="faq-item">
+      <summary>Which retailers does Price AI compare?<span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></summary>
+      <div class="faq-answer">Price AI compares prices across 50+ retailers — including names like Nike, Best Buy, Walmart, Target, and eBay — depending on what you scan. Retailer coverage varies by product category and is always expanding.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Does it work on used or secondhand items?<span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></summary>
+      <div class="faq-answer">Price AI is built to identify products and match them against current retail listings, so it works best on items still sold new. It can surface resale listings — like on eBay — when relevant, but Deal Scores are most reliable for new, in-production items where condition doesn't affect the price.</div>
+    </details>
+    <details class="faq-item">
+      <summary>What if Price AI can't find enough prices?<span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></summary>
+      <div class="faq-answer">If we can't gather enough matching price data for a confident comparison, Price AI shows you whatever retailer results it did find rather than guess at a Deal Score it can't back up.</div>
+    </details>
+    <details class="faq-item">
+      <summary>What happens after my free trial ends?<span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></summary>
+      <div class="faq-answer">Your 3-day free trial gives you full access to Price AI's price comparison and Deal Score features. If you don't cancel at least 24 hours before it ends, you'll be charged for the plan you chose — $9.99/month or $39.99/year — and your subscription will auto-renew until you cancel.</div>
+    </details>
+    <details class="faq-item">
+      <summary>How do I cancel my subscription?<span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></summary>
+      <div class="faq-answer">Cancel anytime in your Apple ID Account Settings. Canceling stops future billing — you'll keep access until the end of your current billing period, and no refunds are given for partial periods.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Are my photos stored?<span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></summary>
+      <div class="faq-answer">Yes. When you scan an item, that photo is sent to our AI provider to identify the product and stored in secure cloud storage so it shows up in your scan history. You can delete your account and all associated data anytime by emailing <a href="mailto:hello@trypriceai.app" style="color:var(--green)">hello@trypriceai.app</a> — see our <a href="privacy.html" style="color:var(--green)">Privacy Policy</a> for details.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Does Price AI work outside the US?<span class="faq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></summary>
+      <div class="faq-answer">Price AI is built around US retailers and pricing in US dollars, so it's optimized for shopping in the United States. You can download and use the app elsewhere, but retailer coverage and price accuracy outside the US may be limited.</div>
+    </details>
+  </div>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Which retailers does Price AI compare?","acceptedAnswer":{"@type":"Answer","text":"Price AI compares prices across 50+ retailers — including names like Nike, Best Buy, Walmart, Target, and eBay — depending on what you scan. Retailer coverage varies by product category and is always expanding."}},
+    {"@type":"Question","name":"Does it work on used or secondhand items?","acceptedAnswer":{"@type":"Answer","text":"Price AI is built to identify products and match them against current retail listings, so it works best on items still sold new. It can surface resale listings, like on eBay, when relevant, but Deal Scores are most reliable for new, in-production items where condition doesn't affect the price."}},
+    {"@type":"Question","name":"What if Price AI can't find enough prices?","acceptedAnswer":{"@type":"Answer","text":"If Price AI can't gather enough matching price data for a confident comparison, it shows whatever retailer results it did find rather than guess at a Deal Score it can't back up."}},
+    {"@type":"Question","name":"What happens after my free trial ends?","acceptedAnswer":{"@type":"Answer","text":"The 3-day free trial gives you full access to Price AI's price comparison and Deal Score features. If you don't cancel at least 24 hours before it ends, you'll be charged for the plan you chose — $9.99/month or $39.99/year — and your subscription will auto-renew until you cancel."}},
+    {"@type":"Question","name":"How do I cancel my subscription?","acceptedAnswer":{"@type":"Answer","text":"Cancel anytime in your Apple ID Account Settings. Canceling stops future billing — you'll keep access until the end of your current billing period, and no refunds are given for partial periods."}},
+    {"@type":"Question","name":"Are my photos stored?","acceptedAnswer":{"@type":"Answer","text":"Yes. When you scan an item, that photo is sent to our AI provider to identify the product and stored in secure cloud storage so it shows up in your scan history. You can delete your account and all associated data anytime by emailing hello@trypriceai.app."}},
+    {"@type":"Question","name":"Does Price AI work outside the US?","acceptedAnswer":{"@type":"Answer","text":"Price AI is built around US retailers and pricing in US dollars, so it's optimized for shopping in the United States. You can download and use the app elsewhere, but retailer coverage and price accuracy outside the US may be limited."}}
+  ]
+}
+</script>
+
 <div class="waitlist-section" id="android-waitlist">
   <div class="waitlist-glow"></div>
   <div class="waitlist-inner" id="waitlist-content">
@@ -396,6 +520,7 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
         <h4>Product</h4>
         <a href="privacy.html">Privacy Policy</a>
         <a href="terms.html">Terms of Service</a>
+        <a href="support.html">Support</a>
         <a href="mailto:hello@trypriceai.app">Contact</a>
       </div>
       <div class="footer-col">

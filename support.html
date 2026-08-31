@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Jobs — Price AI</title>
+<title>Support — Price AI</title>
 <link rel="icon" type="image/png" href="favicon.png"/>
+<meta name="description" content="Get help with Price AI — reach our support team, read our Privacy Policy and Terms of Service, or manage your subscription."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
@@ -18,7 +19,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:grid;grid-template-c
 .nav-links{display:flex;align-items:center;gap:32px;justify-self:center}
 .nav-links a{color:rgba(255,255,255,0.55);text-decoration:none;font-size:0.875rem;font-weight:500;transition:color 0.2s}
 .nav-links a:hover{color:#fff}
-.nav-links a.active{color:#fff}
 .nav-actions{display:flex;align-items:center;gap:10px;justify-self:end}
 .btn-appstore-nav{display:inline-flex;align-items:center;gap:7px;background:#fff;color:#000;font-weight:700;font-size:0.78rem;padding:9px 18px;border-radius:10px;text-decoration:none;transition:opacity 0.2s}
 .btn-appstore-nav:hover{opacity:0.82}
@@ -29,20 +29,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:grid;grid-template-c
 .page-title{font-family:var(--font-serif);font-size:clamp(3rem,6vw,5rem);font-weight:400;color:#fff;line-height:1;letter-spacing:-0.03em;font-style:italic;margin-bottom:20px;position:relative;z-index:1}
 .page-sub{color:rgba(255,255,255,0.45);font-size:1.05rem;max-width:480px;margin:0 auto;font-weight:300;line-height:1.75;position:relative;z-index:1}
 .content{max-width:800px;margin:0 auto;padding:80px 48px}
-.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--gray-200);border-radius:20px;overflow:hidden;margin-bottom:48px}
-.value{background:var(--white);padding:32px 28px}
-.value-name{font-size:0.95rem;font-weight:700;margin-bottom:8px;letter-spacing:-0.01em}
-.value-desc{font-size:0.85rem;color:var(--gray-600);line-height:1.7;font-weight:300}
 .card{background:var(--gray-100);border-radius:24px;padding:48px;margin-bottom:32px}
 .card h2{font-family:var(--font-serif);font-size:1.8rem;font-weight:400;font-style:italic;letter-spacing:-0.02em;margin-bottom:12px}
-.card p{color:var(--gray-600);font-size:0.95rem;line-height:1.8;font-weight:300;margin-bottom:28px}
-.form-group{margin-bottom:20px}
-.form-group label{display:block;font-size:0.8rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--black);margin-bottom:8px}
-.form-group input,.form-group textarea,.form-group select{width:100%;background:#fff;border:1.5px solid var(--gray-200);border-radius:12px;padding:13px 16px;font-family:var(--font-sans);font-size:0.95rem;color:var(--black);outline:none;transition:border-color 0.2s}
-.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--black)}
-.form-group textarea{min-height:120px;resize:vertical}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.btn-submit{display:inline-flex;align-items:center;gap:10px;background:var(--black);color:#fff;font-weight:700;font-size:0.95rem;padding:15px 36px;border-radius:100px;border:none;cursor:pointer;letter-spacing:-0.01em;transition:opacity 0.2s,transform 0.2s;font-family:var(--font-sans)}
+.card p{color:var(--gray-600);font-size:0.95rem;line-height:1.8;font-weight:300;margin-bottom:0}
+.card p+p{margin-top:16px}
+.card a.email-link{color:var(--green);text-decoration:none;font-weight:500}
+.card a.email-link:hover{text-decoration:underline}
+.links-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+.btn-link{display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1.5px solid var(--gray-200);color:var(--black);font-weight:600;font-size:0.85rem;padding:12px 22px;border-radius:100px;text-decoration:none;transition:border-color 0.2s,transform 0.2s}
+.btn-link:hover{border-color:var(--black);transform:translateY(-1px)}
+.btn-submit{display:inline-flex;align-items:center;gap:10px;background:var(--black);color:#fff;font-weight:700;font-size:0.95rem;padding:15px 36px;border-radius:100px;border:none;cursor:pointer;letter-spacing:-0.01em;transition:opacity 0.2s,transform 0.2s;font-family:var(--font-sans);text-decoration:none}
 .btn-submit:hover{opacity:0.8;transform:translateY(-1px)}
 footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);padding:48px}
 .footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px}
@@ -55,7 +51,7 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
 .social-btn{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.35);text-decoration:none;transition:border-color 0.2s,color 0.2s,transform 0.15s}
 .social-btn:hover{border-color:rgba(255,255,255,0.45);color:#fff;transform:scale(1.1)}
 .footer-copy{color:rgba(255,255,255,0.2);font-size:0.75rem;width:100%;padding-top:24px;border-top:1px solid rgba(255,255,255,0.06);margin-top:24px}
-@media(max-width:768px){nav{grid-template-columns:1fr 1fr}.nav-links{display:none}.form-row{grid-template-columns:1fr}.content{padding:60px 24px}.page-hero{padding:130px 24px 80px}.values-grid{grid-template-columns:1fr}.btn-play-nav{display:none !important}.btn-appstore-nav{padding:15px 14px}.nav-logo{padding:12px 0}.footer-logo{padding:12px 0}.footer-links a{padding:14px 0}footer{padding:40px 24px 28px}}
+@media(max-width:768px){nav{grid-template-columns:1fr 1fr}.nav-links{display:none}.content{padding:60px 24px}.page-hero{padding:130px 24px 80px}.btn-play-nav{display:none !important}.btn-appstore-nav{padding:15px 14px}.nav-logo{padding:12px 0}.footer-logo{padding:12px 0}.footer-links a{padding:14px 0}footer{padding:40px 24px 28px}.card{padding:32px 24px}.links-row{flex-direction:column;align-items:stretch}.btn-link,.btn-submit{justify-content:center}}
 </style>
 </head>
 <body>
@@ -64,7 +60,7 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
   <div class="nav-links">
     <a href="index.html#how">How It Works</a>
     <a href="press.html">Press</a>
-    <a href="jobs.html" class="active">Jobs</a>
+    <a href="jobs.html">Jobs</a>
     <a href="affiliates.html">Affiliates</a>
   </div>
   <div class="nav-actions">
@@ -78,35 +74,26 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
 
 <div class="page-hero">
   <div class="page-glow"></div>
-  <div class="eyebrow">Careers</div>
-  <h1 class="page-title">Join the team</h1>
-  <p class="page-sub">Price AI is a fast-moving, solo-founded startup. We're not hiring yet — but we're always interested in exceptional people.</p>
+  <div class="eyebrow">Support</div>
+  <h1 class="page-title">We're here to help</h1>
+  <p class="page-sub">Questions, bugs, billing issues, or feedback — reach out and a real person will get back to you.</p>
 </div>
 
 <div class="content">
-  <div class="values-grid">
-    <div class="value"><div class="value-name">Move fast</div><div class="value-desc">We ship weekly. Speed and quality aren't opposites here.</div></div>
-    <div class="value"><div class="value-name">Own your work</div><div class="value-desc">Small team means real ownership and real impact from day one.</div></div>
-    <div class="value"><div class="value-name">Build for people</div><div class="value-desc">Every decision starts with the user. Does this actually help them?</div></div>
+  <div class="card">
+    <h2>Contact Us</h2>
+    <p>The fastest way to reach us is email: <a href="mailto:hello@trypriceai.app" class="email-link">hello@trypriceai.app</a>.</p>
+    <p>We typically respond within 1–2 business days. For billing or subscription issues, include the email address associated with your Apple ID so we can look into it faster.</p>
+    <div class="links-row">
+      <a href="mailto:hello@trypriceai.app" class="btn-submit">Email Support →</a>
+      <a href="privacy.html" class="btn-link">Privacy Policy</a>
+      <a href="terms.html" class="btn-link">Terms of Service</a>
+    </div>
   </div>
 
   <div class="card">
-    <h2>Open Application</h2>
-    <p>No open roles right now, but the right person changes that. If you're exceptional at what you do and want to help build the future of shopping, send us something worth reading.</p>
-    <form onsubmit="handleJobs(event)">
-      <div class="form-row">
-        <div class="form-group"><label>Name</label><input type="text" name="name" placeholder="Your name" required/></div>
-        <div class="form-group"><label>Email</label><input type="email" name="email" placeholder="your@email.com" required/></div>
-      </div>
-      <div class="form-group"><label>Role You're Interested In</label>
-        <select name="role">
-          <option>Engineering</option><option>Design</option><option>Marketing & Growth</option><option>Operations</option><option>Other</option>
-        </select>
-      </div>
-      <div class="form-group"><label>Link to Your Work</label><input type="url" name="portfolio" placeholder="Portfolio, GitHub, LinkedIn, etc."/></div>
-      <div class="form-group"><label>Why Price AI</label><textarea name="message" placeholder="Tell us why you want to work here and what you'd bring..." required></textarea></div>
-      <button type="submit" class="btn-submit">Send Application →</button>
-    </form>
+    <h2>Managing Your Subscription</h2>
+    <p>Price AI subscriptions are billed and managed through your Apple ID, not in the app itself. To view, change, or cancel your subscription, go to Settings → your name → Subscriptions on your iPhone. Canceling stops future billing — you'll keep access until the end of your current billing period.</p>
   </div>
 </div>
 
@@ -133,15 +120,5 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
     <div class="footer-copy">© 2026 Price AI. All rights reserved.</div>
   </div>
 </footer>
-
-<script>
-function handleJobs(e){
-  e.preventDefault();
-  const f=e.target;
-  const subject=encodeURIComponent('Job Application — '+f.role.value+' — Price AI');
-  const body=encodeURIComponent('Name: '+f.name.value+'\nEmail: '+f.email.value+'\nRole: '+f.role.value+'\nPortfolio: '+f.portfolio.value+'\n\nWhy Price AI:\n'+f.message.value);
-  window.location.href='mailto:hello@trypriceai.app?subject='+subject+'&body='+body;
-}
-</script>
 </body>
 </html>
