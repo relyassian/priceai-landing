@@ -76,11 +76,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:grid;grid-template-c
 .screenshot-fan{display:flex;align-items:flex-end;justify-content:center;width:100%;max-width:760px;margin:0 auto;padding:40px 0 0;z-index:1;position:relative}
 .fan-img{flex-shrink:0;transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1);cursor:pointer;position:relative}
 .fan-img img{width:168px;border-radius:24px;display:block;box-shadow:0 24px 60px rgba(0,0,0,0.75),0 0 0 1px rgba(255,255,255,0.07)}
-.fan-1{transform:rotate(-9deg) translateY(20px);z-index:1;margin-right:-18px}
-.fan-2{transform:rotate(-3deg) translateY(8px);z-index:2;margin-right:-18px}
-.fan-3{transform:rotate(3deg) translateY(8px);z-index:2;margin-right:-18px}
-.fan-4{transform:rotate(9deg) translateY(20px);z-index:1}
-.fan-img:hover{transform:rotate(0deg) translateY(-24px) scale(1.06);z-index:10}
+.fan-img:hover{transform:rotate(0deg) translateY(-24px) scale(1.06)!important;z-index:10!important}
+
+.screenshot-fan .fan-img:nth-child(1){transform:rotate(-10deg) translateY(26px);z-index:1;margin-right:-26px}
+.screenshot-fan .fan-img:nth-child(2){transform:rotate(0deg) translateY(-8px);z-index:3}
+.screenshot-fan .fan-img:nth-child(3){transform:rotate(10deg) translateY(26px);z-index:1;margin-left:-26px}
 
 /* GRADIENT TRANSITION */
 .hero-to-white{height:100px;background:linear-gradient(to bottom,var(--black),var(--white))}
@@ -259,7 +259,9 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
   .footer-affiliate{text-align:left;max-width:100%}
   .cta-badges{flex-direction:column;align-items:center}
   .fan-img img{width:clamp(64px,22vw,105px);border-radius:18px}
-  .fan-1,.fan-2,.fan-3{margin-right:clamp(-14px,-4.5vw,-9px)}
+  .screenshot-fan .fan-img:nth-child(1){transform:rotate(-8deg) translateY(clamp(10px,6vw,26px));margin-right:clamp(-16px,-5vw,-9px)}
+  .screenshot-fan .fan-img:nth-child(2){transform:rotate(0deg) translateY(clamp(-6px,-2vw,-3px))}
+  .screenshot-fan .fan-img:nth-child(3){transform:rotate(8deg) translateY(clamp(10px,6vw,26px));margin-left:clamp(-16px,-5vw,-9px)}
   .stats-inner{display:grid;grid-template-columns:1fr 1fr;gap:32px 8px}
   .stat-item{padding:0 4px}
   .stat-num{font-size:clamp(1.8rem,7vw,2.5rem)}
@@ -307,10 +309,9 @@ footer{background:var(--black);border-top:1px solid rgba(255,255,255,0.06);paddi
     </div>
   </div>
   <div class="screenshot-fan">
-    <div class="fan-img fan-1"><img src="screen1.png" alt="Deal score"/></div>
-    <div class="fan-img fan-2"><img src="screen2.png" alt="Price comparison"/></div>
-    <div class="fan-img fan-3"><img src="screen3.png" alt="Home savings"/></div>
-    <div class="fan-img fan-4"><img src="screen4.png" alt="Camera scan"/></div>
+    <div class="fan-img"><img src="screen-camera.jpg" alt="Scanning a product with the camera"/></div>
+    <div class="fan-img"><img src="screen-results.jpg" alt="Deal Score results with fair market value"/></div>
+    <div class="fan-img"><img src="screen-chat.jpg" alt="Chat with reasoning and product cards"/></div>
   </div>
 </section>
 
